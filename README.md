@@ -11,3 +11,6 @@
   Visitor count<br>
   <img src="https://profile-counter.glitch.me/rachlenko/count.svg" />
 </p>
+
+<h3>my sertifications: </h3> 
+<img src = "https://partnercredentials.elastic.co/4beeffb9-e879-48a4-95e7-7405c16c4567" >
