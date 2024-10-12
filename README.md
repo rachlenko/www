@@ -12,5 +12,5 @@
   <img src="https://profile-counter.glitch.me/rachlenko/count.svg" />
 </p>
 
-<h3>my sertifications: </h3> 
+<h3>Professional Certificates </h3> 
 <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/118300581" >
