@@ -13,5 +13,5 @@
 </p>
 
 <h3>Professional Certificates </h3> 
-<img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/118300581" >
-<img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/118338936" >
+[<img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/118300581" >]()
+[<img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/118338936" >](https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/118338936)
