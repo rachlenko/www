@@ -1,84 +1,240 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rachlenko.com</title>
-  <link rel="stylesheet" href="whatever-you-want.css">
-  <script src="main.js"></script>
   <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #f4f4f4;
-          color: #333;
-      }
-      header {
-          background-color: #333;
-          color: #fff;
-          padding: 20px 0;
-          text-align: center;
-      }
-      .container {
-          width: 80%;
-          margin: 0 auto;
-          padding: 20px;
-          background: #fff;
-          box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      }
-      h1 {
-          margin: 0;
-          font-size: 2.5em;
-      }
-      p {
-          font-size: 1.2em;
-          line-height: 1.6;
-      }
-      footer {
-          background-color: #333;
-          color: #fff;
-          text-align: center;
-          padding: 10px 0;
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-      }
+    :root {
+      --bg-color: #f6f8fa;
+      --header-bg: #f0f5ff;
+      --card-bg: #ffffff;
+      --text-color: #24292e;
+      --link-color: #0366d6;
+      --border-color: #e1e4e8;
+      --accent-1: #f0e6ff; /* Pastel purple */
+      --accent-2: #e6f7ff; /* Pastel blue */
+      --accent-3: #e6ffed; /* Pastel green */
+      --accent-4: #fff5e6; /* Pastel orange */
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+    
+    header {
+      background-color: var(--header-bg);
+      padding: 24px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    
+    .profile-card {
+      background-color: var(--card-bg);
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .profile-image {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-color);
+    }
+    
+    .profile-info {
+      margin-left: 20px;
+    }
+    
+    h1 {
+      font-size: 26px;
+      margin: 0 0 8px 0;
+    }
+    
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 24px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .location {
+      color: #586069;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    
+    .project-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+      transition: transform 0.2s;
+    }
+    
+    .project-card:nth-child(odd) {
+      background-color: var(--accent-2);
+    }
+    
+    .project-card:nth-child(even) {
+      background-color: var(--accent-3);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.05);
+    }
+    
+    .project-card h3 {
+      margin: 0 0 8px 0;
+    }
+    
+    .project-card a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+    
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--link-color);
+      background-color: var(--accent-1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+    
+    .social-links a:hover {
+      background-color: #e1e4e8;
+    }
+    
+    .stats-card {
+      background-color: var(--accent-4);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .coffee-support {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent-1);
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .coffee-support a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .coffee-support a:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #586069;
+      font-size: 14px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-<header>
-    www.rachlenko.com
-</header>
-<div class="container">
-<img src="images/evgeny.png" alt="Evgeny Rachlenko"  width="128" height="128" >
-<br>
-<h4>Evgeny Rachlenko</h4>
-Universidade de aveiro<br>
-Departamento de Matemática<br>
-Portugal, 3810-193<br>
-<br>
-
-<h4>My Projects</h4>
-<a href="https://github.com/rachlenko/prometheus" target="_blank"><b>prometheus</b></a><br>
-<a href="https://github.com/rachlenko/git-camus" target="_blank"><b>git-camus</b></a><br>
-
-
-<h4>📫 🔭 Follow Me: </h4> 
-        <ul>
-            <li><a href="https://x.com/evgenyra" target="_blank">Twitter</a></li>
-            <li><a href="https://linkedin.com/in/evgeny_rachlenko" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/rachlenko" target="_blank">GitHub</a></li>
-        </ul>
-
-<p align="center">
-  Visitor count<br>
-  <img src="https://profile-counter.glitch.me/rachlenko/count.svg" />
-</p>
-  <script>var app = Elm.Main.init();</script>
-
-  If you enjoy my code and project, 
-  <a href="https://ko-fi.com/evgenyrachlenko">feel free to buy me a coffee</a> - it keeps the code flowing! ☕😄 <br>
-
+  <header>
+    <div class="container">
+      <h1>www.rachlenko.com</h1>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="images/evgeny.png" alt="Evgeny Rachlenko" class="profile-image">
+        <div class="profile-info">
+          <h1>Evgeny Rachlenko</h1>
+          <div class="location">
+            Universidade de Aveiro<br>
+            Departamento de Matemática<br>
+            Portugal, 3810-193
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2>✨ My Projects</h2>
+    <div class="project-card">
+      <h3><a href="https://github.com/rachlenko/prometheus" target="_blank">prometheus</a></h3>
+    </div>
+    <div class="project-card">
+      <h3><a href="https://github.com/rachlenko/git-camus" target="_blank">git-camus</a></h3>
+    </div>
+    
+    <h2>📫 Follow Me</h2>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/evgeny_rachlenko" target="_blank">💼 LinkedIn</a>
+      <a href="https://github.com/rachlenko" target="_blank">🔮 GitHub</a>
+    </div>
+    
+    <div class="stats-card">
+      <h3>Visitor count</h3>
+      <img src="https://profile-counter.glitch.me/rachlenko/count.svg" alt="Visitor Count">
+    </div>
+    
+    <div class="coffee-support">
+      If you enjoy my code and projects, 
+      <a href="https://ko-fi.com/evgenyrachlenko"> feel free to buy me a coffee</a> - it keeps the code flowing! ☕😄
+    </div>
+  </div>
+  
+  <footer>
+    © 2025 Evgeny Rachlenko
+  </footer>
 </body>
 </html>
