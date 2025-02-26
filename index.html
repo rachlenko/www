@@ -6,14 +6,14 @@
   <title>Rachlenko.com</title>
   <style>
     :root {
-      --bg-color: #ffffff;
-      --header-bg: #f2f2f2;
-      --card-bg: #ffffff;
-      --text-color: #000000;
-      --link-color: #333333;
-      --border-color: #cccccc;
-      --accent-1: #f0f0f0;
-      --accent-2: #e6e6e6;
+      --bg-color: #000000;
+      --header-bg: #111111;
+      --card-bg: #111111;
+      --text-color: #ffffff;
+      --link-color: #cccccc;
+      --border-color: #333333;
+      --accent-1: #222222;
+      --accent-2: #1a1a1a;
     }
     
     body {
@@ -45,7 +45,7 @@
       border: 1px solid var(--border-color);
       padding: 24px;
       margin-bottom: 24px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
     
     .profile-header {
@@ -83,47 +83,17 @@
     }
     
     .location {
-      color: #333333;
+      color: #cccccc;
       font-size: 16px;
       margin-bottom: 4px;
       font-style: italic;
     }
     
-    .project-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 16px;
-      margin-bottom: 16px;
-      transition: transform 0.2s;
-    }
-    
-    .project-card:nth-child(odd) {
-      background-color: var(--accent-2);
-    }
-    
-    .project-card:nth-child(even) {
-      background-color: var(--accent-1);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.05);
-    }
-    
-    .project-card h3 {
-      margin: 0 0 8px 0;
-      font-family: "Times New Roman", Times, serif;
-    }
-    
-    .project-card a {
-      color: var(--link-color);
-      text-decoration: none;
+    .profession {
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 8px;
       font-weight: bold;
-    }
-    
-    .project-card a:hover {
-      text-decoration: underline;
     }
     
     .social-links {
@@ -146,7 +116,33 @@
     }
     
     .social-links a:hover {
-      background-color: #e1e1e1;
+      background-color: #333333;
+      color: #ffffff;
+    }
+    
+    .links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .links-list a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--link-color);
+      background-color: var(--accent-1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    
+    .links-list a:hover {
+      background-color: #333333;
+      color: #ffffff;
+      transform: translateY(-2px);
     }
     
     .social-icon {
@@ -175,12 +171,13 @@
     
     .coffee-support a:hover {
       text-decoration: underline;
+      color: #ffffff;
     }
     
     footer {
       text-align: center;
       padding: 24px;
-      color: #333333;
+      color: #777777;
       font-size: 14px;
       border-top: 1px solid var(--border-color);
       margin-top: 40px;
@@ -193,7 +190,7 @@
       border-radius: 6px;
       overflow: hidden;
       margin-bottom: 24px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
       font-family: "Courier New", monospace;
     }
     
@@ -261,21 +258,13 @@
         <img src="images/evgeny.png" alt="Evgeny Rachlenko" class="profile-image">
         <div class="profile-info">
           <h1>Evgeny Rachlenko</h1>
+          <div class="profession">Data Engineer</div>
           <div class="location">
             Universidade de Aveiro<br>
-            Departamento de Matemática<br>
             Portugal, 3810-193
           </div>
         </div>
       </div>
-    </div>
-    
-    <h2>My Projects</h2>
-    <div class="project-card">
-      <h3><a href="https://github.com/rachlenko/prometheus" target="_blank">prometheus</a></h3>
-    </div>
-    <div class="project-card">
-      <h3><a href="https://github.com/rachlenko/git-camus" target="_blank">git-camus</a></h3>
     </div>
     
     <h2>Follow Me</h2>
@@ -294,7 +283,7 @@
       </a>
     </div>
     
-    <h2>Terminal</h2>
+    <h2>My favorite window:</h2>
     <div class="terminal-container">
       <div class="terminal-header">
         <div class="terminal-buttons">
@@ -307,6 +296,20 @@
       <div id="terminal-content">
         <pre id="top-output"></pre>
       </div>
+    </div>
+    
+    <h2>My productivity apps:</h2>
+    <div class="links-list">
+      <a href="https://neovim.io/" target="_blank">NeoVim</a>
+      <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>
+      <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>
+    </div>
+    
+    <h2>My favorite languages:</h2>
+    <div class="links-list">
+      <a href="https://www.python.org/" target="_blank">Python</a>
+      <a href="https://kotlinlang.org/" target="_blank">Kotlin</a>
+      <a href="https://golang.org/" target="_blank">Go</a>
     </div>
     
     <div class="coffee-support">
