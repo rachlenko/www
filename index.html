@@ -243,6 +243,25 @@
       font-size: 14px;
       line-height: 1.2;
     }
+
+    /* Ideas Generator Frame Styles */
+    .ideas-generator-container {
+      background-color: var(--card-bg);
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .ideas-frame {
+      width: 100%;
+      height: 500px;
+      border: none;
+      overflow: hidden;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -281,6 +300,11 @@
         </svg>
         GitHub
       </a>
+    </div>
+    
+    <h2>Ideas Generator Game</h2>
+    <div class="ideas-generator-container">
+      <iframe src="ideas_generator.html" class="ideas-frame" title="Ideas Generator Game"></iframe>
     </div>
     
     <h2>My favorite window:</h2>
