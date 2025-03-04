@@ -4,24 +4,23 @@
 [![ko-fi](https://img.shields.io/badge/Support%20Me-Ko--fi-orange)](https://ko-fi.com/evgenyrachlenko)
 
 ## About Me
-
-Software developer with expertise in **Python**, **Go**, and **Kotlin**. Currently focused on developing innovative smart home solutions and automation technologies.
+I am a happy developer who believes the power of programming is to make code work! :)
 
 ## Skills
 
-- **Languages**: Python, Go, Kotlin
-- **Interests**: IoT, Smart Home Automation, System Architecture
-- **Development**: Full-Stack Development, API Design, Microservices
+- **Languages**: Python, Go, Java
+- **Interests**: IoT, Smart Home Automation, System Architecture, BigData
+- **Development**: Backend 
 
 ## Projects
 
-I'm currently working on enhancing my smart home project with new features and improved reliability. More details coming soon!
+- [git-camus](https://github.com/rachlenko/git-camus)
+- [calendula](https://github.com/rachlenko/calendula)
+- [prometheus](https://github.com/rachlenko/prometheus)
 
-## Get in Touch
 
-- 📧 Email: [evgeny.rachlenko@gmail.com](mailto:evgeny.rachlenko@gmail.com)
-- 🌐 GitHub: [@rachlenko](https://github.com/rachlenko/)
-- ☕ Support: [Buy me a coffee](https://ko-fi.com/evgenyrachlenko)
+## ☕ Support me: 
+[if you like my code: Buy me a coffee ](https://ko-fi.com/evgenyrachlenko)
 
 <!-- GitHub stats commented out for now
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=rachlenko&show_icons=true&theme=radical" />
@@ -30,8 +29,3 @@ I'm currently working on enhancing my smart home project with new features and i
 <p align="center">
   <img src="https://profile-counter.glitch.me/rachlenko/count.svg" alt="Visitor Count" />
 </p>
-
----
-
-*Also known as: Eugenio*
-
