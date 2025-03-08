@@ -241,6 +241,79 @@
       overflow: hidden;
       border-radius: 4px;
     }
+
+    .projects-section {
+    padding: 80px 0;
+    background-color: var(--calendula-light-yellow);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    color: var(--calendula-dark-orange);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--calendula-orange);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: var(--calendula-dark-orange);
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
   </style>
 </head>
 <body>
@@ -419,5 +492,45 @@ MiB Swap: ${(memInfo.total * 0.5).toFixed(1)} total, ${(memInfo.total * 0.4).toF
       }, 3000);
     }
   </script>
+
+
+<section class="projects-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>My Projects</h2>
+            <p>Explore our suite of innovative productivity and development tools</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">
+                    <img src="img1.jpeg" alt="Calendula">
+                </div>
+                <h3>Calendula</h3>
+                <p>Enterprise-grade strategic planning solution that synchronizes calendars across multiple platforms and prevents scheduling conflicts.</p>
+                <a href="#" class="project-link">Learn More</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <img src="img2.jpeg" alt="Git-Camus">
+                </div>
+                <h3>Git-Camus</h3>
+                <p>Transform your Git commit messages into philosophical reflections inspired by the works of Albert Camus.</p>
+                <a href="#" class="project-link">Learn More</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <img src="img3.jpeg" alt="Cesar">
+                </div>
+                <h3>Cesar</h3>
+                <p>Visualize system activity through intuitive graphs, presenting complex performance data in an easily digestible format.</p>
+                <a href="#" class="project-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
