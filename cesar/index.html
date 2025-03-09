@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar - System Monitoring Analytic tool </title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <title>CESAR - System Monitoring Analytic Tool</title>
     <style>
         * {
             margin: 0;
@@ -45,7 +44,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 15px;
-            position: relative;
         }
 
         .metric-header {
@@ -78,36 +76,83 @@
             font-weight: 600;
         }
 
-        .metric-value {
-            font-size: 32px;
-            font-weight: 700;
+        .gauge-container {
+            width: 100%;
+            height: 40px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
             margin-bottom: 5px;
+        }
+
+        .gauge-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .gauge-threshold {
+            position: absolute;
+            width: 2px;
+            height: 40px;
+            top: 0;
+        }
+
+        .gauge-threshold.yellow {
+            background-color: #FAAD14;
+        }
+
+        .gauge-threshold.red {
+            background-color: #FF4D4F;
+        }
+
+        .gauge-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 2px rgba(0,0,0,0.7);
+            font-size: 16px;
+        }
+
+        .metric-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .metrics-summary {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
         }
 
         .update-time {
             font-size: 12px;
             color: #888;
-        }
-
-        .charts-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .chart-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 15px;
-            height: 300px;
-        }
-
-        .chart-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
+            text-align: right;
         }
 
         /* Status colors */
@@ -125,14 +170,21 @@
             background-color: #FF4D4F;
             color: #FF4D4F;
         }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="dashboard">
-        <h1>CESAR - System Monitoring Dashboard</h1>
+        <h1>CESAR - System Monitoring Analytic Tool</h1>
 
         <div class="metrics-grid">
-            <div class="metric-card" id="cpu-card">
+            <!-- CPU Load Card -->
+            <div class="metric-card">
                 <div class="metric-header">
                     <div class="metric-title">CPU Load</div>
                     <div class="status-indicator">
@@ -140,11 +192,37 @@
                         <div class="status-text green" id="cpu-status-text">OK</div>
                     </div>
                 </div>
-                <div class="metric-value" id="cpu-value">0%</div>
-                <div class="update-time" id="cpu-time">Updated just now</div>
+
+                <div class="gauge-labels">
+                    <span>0%</span>
+                    <span>Low</span>
+                    <span>Warning</span>
+                    <span>Critical</span>
+                    <span>100%</span>
+                </div>
+
+                <div class="gauge-container">
+                    <div class="gauge-bar green" id="cpu-gauge" style="width: 0%"></div>
+                    <div class="gauge-threshold yellow" id="cpu-yellow-threshold"></div>
+                    <div class="gauge-threshold red" id="cpu-red-threshold"></div>
+                    <div class="gauge-value" id="cpu-gauge-value">0%</div>
+                </div>
+
+                <div class="metric-details">
+                    <div class="metrics-summary">
+                        <div class="metric-value" id="cpu-value">0%</div>
+                        <div class="metric-range">
+                            <span>Low: 0-69%</span>
+                            <span>Warning: 70-89%</span>
+                            <span>Critical: 90-100%</span>
+                        </div>
+                    </div>
+                    <div class="update-time" id="cpu-time">Updated just now</div>
+                </div>
             </div>
 
-            <div class="metric-card" id="memory-card">
+            <!-- Memory Usage Card -->
+            <div class="metric-card">
                 <div class="metric-header">
                     <div class="metric-title">Memory Usage</div>
                     <div class="status-indicator">
@@ -152,11 +230,37 @@
                         <div class="status-text green" id="memory-status-text">OK</div>
                     </div>
                 </div>
-                <div class="metric-value" id="memory-value">0%</div>
-                <div class="update-time" id="memory-time">Updated just now</div>
+
+                <div class="gauge-labels">
+                    <span>0%</span>
+                    <span>Low</span>
+                    <span>Warning</span>
+                    <span>Critical</span>
+                    <span>100%</span>
+                </div>
+
+                <div class="gauge-container">
+                    <div class="gauge-bar green" id="memory-gauge" style="width: 0%"></div>
+                    <div class="gauge-threshold yellow" id="memory-yellow-threshold"></div>
+                    <div class="gauge-threshold red" id="memory-red-threshold"></div>
+                    <div class="gauge-value" id="memory-gauge-value">0%</div>
+                </div>
+
+                <div class="metric-details">
+                    <div class="metrics-summary">
+                        <div class="metric-value" id="memory-value">0%</div>
+                        <div class="metric-range">
+                            <span>Low: 0-69%</span>
+                            <span>Warning: 70-89%</span>
+                            <span>Critical: 90-100%</span>
+                        </div>
+                    </div>
+                    <div class="update-time" id="memory-time">Updated just now</div>
+                </div>
             </div>
 
-            <div class="metric-card" id="diskio-card">
+            <!-- Disk I/O Card -->
+            <div class="metric-card">
                 <div class="metric-header">
                     <div class="metric-title">Disk I/O</div>
                     <div class="status-indicator">
@@ -164,11 +268,37 @@
                         <div class="status-text green" id="diskio-status-text">OK</div>
                     </div>
                 </div>
-                <div class="metric-value" id="diskio-value">0 MB/s</div>
-                <div class="update-time" id="diskio-time">Updated just now</div>
+
+                <div class="gauge-labels">
+                    <span>0 MB/s</span>
+                    <span>Low</span>
+                    <span>Warning</span>
+                    <span>Critical</span>
+                    <span>100 MB/s</span>
+                </div>
+
+                <div class="gauge-container">
+                    <div class="gauge-bar green" id="diskio-gauge" style="width: 0%"></div>
+                    <div class="gauge-threshold yellow" id="diskio-yellow-threshold"></div>
+                    <div class="gauge-threshold red" id="diskio-red-threshold"></div>
+                    <div class="gauge-value" id="diskio-gauge-value">0 MB/s</div>
+                </div>
+
+                <div class="metric-details">
+                    <div class="metrics-summary">
+                        <div class="metric-value" id="diskio-value">0 MB/s</div>
+                        <div class="metric-range">
+                            <span>Low: 0-59 MB/s</span>
+                            <span>Warning: 60-79 MB/s</span>
+                            <span>Critical: 80+ MB/s</span>
+                        </div>
+                    </div>
+                    <div class="update-time" id="diskio-time">Updated just now</div>
+                </div>
             </div>
 
-            <div class="metric-card" id="diskspace-card">
+            <!-- Free Disk Space Card -->
+            <div class="metric-card">
                 <div class="metric-header">
                     <div class="metric-title">Free Disk Space</div>
                     <div class="status-indicator">
@@ -176,29 +306,40 @@
                         <div class="status-text green" id="diskspace-status-text">OK</div>
                     </div>
                 </div>
-                <div class="metric-value" id="diskspace-value">100%</div>
-                <div class="update-time" id="diskspace-time">Updated just now</div>
-            </div>
-        </div>
 
-        <div class="charts-container">
-            <div class="chart-container">
-                <div class="chart-title">CPU & Memory Metrics</div>
-                <canvas id="cpuMemoryChart"></canvas>
-            </div>
+                <div class="gauge-labels">
+                    <span>0%</span>
+                    <span>Critical</span>
+                    <span>Warning</span>
+                    <span>Good</span>
+                    <span>100%</span>
+                </div>
 
-            <div class="chart-container">
-                <div class="chart-title">Disk Performance Metrics</div>
-                <canvas id="diskChart"></canvas>
+                <div class="gauge-container">
+                    <div class="gauge-bar green" id="diskspace-gauge" style="width: 0%"></div>
+                    <div class="gauge-threshold red" id="diskspace-red-threshold"></div>
+                    <div class="gauge-threshold yellow" id="diskspace-yellow-threshold"></div>
+                    <div class="gauge-value" id="diskspace-gauge-value">0%</div>
+                </div>
+
+                <div class="metric-details">
+                    <div class="metrics-summary">
+                        <div class="metric-value" id="diskspace-value">0%</div>
+                        <div class="metric-range">
+                            <span>Critical: 0-9%</span>
+                            <span>Warning: 10-19%</span>
+                            <span>Good: 20-100%</span>
+                        </div>
+                    </div>
+                    <div class="update-time" id="diskspace-time">Updated just now</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-                                      <script>
         // Configuration
         const config = {
-            maxDataPoints: 20,
             updateInterval: 2000, // ms
             thresholds: {
                 cpuLoad: { yellow: 70, red: 90 },
@@ -208,166 +349,19 @@
             }
         };
 
-        // Initialize data arrays
-        const timeLabels = [];
-        const cpuData = [];
-        const memoryData = [];
-        const diskIOData = [];
-        const freeSpaceData = [];
+        // Set threshold indicators positions
+        document.getElementById('cpu-yellow-threshold').style.left = config.thresholds.cpuLoad.yellow + '%';
+        document.getElementById('cpu-red-threshold').style.left = config.thresholds.cpuLoad.red + '%';
 
-        // Setup CPU & Memory Chart
-        const cpuMemoryCtx = document.getElementById('cpuMemoryChart').getContext('2d');
-        const cpuMemoryChart = new Chart(cpuMemoryCtx, {
-            type: 'line',
-            data: {
-                labels: timeLabels,
-                datasets: [
-                    {
-                        label: 'CPU Load (%)',
-                        data: cpuData,
-                        borderColor: '#FF4D4F',
-                        backgroundColor: 'rgba(255, 77, 79, 0.1)',
-                        tension: 0.4,
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        pointHoverRadius: 5
-                    },
-                    {
-                        label: 'Memory Usage (%)',
-                        data: memoryData,
-                        borderColor: '#FAAD14',
-                        backgroundColor: 'rgba(250, 173, 20, 0.1)',
-                        tension: 0.4,
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        pointHoverRadius: 5
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: {
-                            display: true,
-                            text: 'Percentage (%)'
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            maxRotation: 0,
-                            autoSkip: true,
-                            maxTicksLimit: 10
-                        }
-                    }
-                },
-                animation: {
-                    duration: 0
-                },
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false
-                    }
-                }
-            }
-        });
+        document.getElementById('memory-yellow-threshold').style.left = config.thresholds.memoryUsage.yellow + '%';
+        document.getElementById('memory-red-threshold').style.left = config.thresholds.memoryUsage.red + '%';
 
-        // Setup Disk Chart
-        const diskCtx = document.getElementById('diskChart').getContext('2d');
-        const diskChart = new Chart(diskCtx, {
-            type: 'line',
-            data: {
-                labels: timeLabels,
-                datasets: [
-                    {
-                        label: 'Disk I/O (MB/s)',
-                        data: diskIOData,
-                        borderColor: '#1890FF',
-                        backgroundColor: 'rgba(24, 144, 255, 0.1)',
-                        tension: 0.4,
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        pointHoverRadius: 5,
-                        yAxisID: 'y'
-                    },
-                    {
-                        label: 'Free Disk Space (%)',
-                        data: freeSpaceData,
-                        borderColor: '#52C41A',
-                        backgroundColor: 'rgba(82, 196, 26, 0.1)',
-                        tension: 0.4,
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        pointHoverRadius: 5,
-                        yAxisID: 'y1'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: 'Disk I/O (MB/s)'
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        }
-                    },
-                    y1: {
-                        beginAtZero: true,
-                        max: 100,
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'Free Space (%)'
-                        },
-                        grid: {
-                            display: false
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            maxRotation: 0,
-                            autoSkip: true,
-                            maxTicksLimit: 10
-                        }
-                    }
-                },
-                animation: {
-                    duration: 0
-                },
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false
-                    }
-                }
-            }
-        });
+        document.getElementById('diskio-yellow-threshold').style.left = config.thresholds.diskIO.yellow + '%';
+        document.getElementById('diskio-red-threshold').style.left = config.thresholds.diskIO.red + '%';
+
+        // For free disk space (reversed logic)
+        document.getElementById('diskspace-yellow-threshold').style.left = config.thresholds.freeSpace.yellow + '%';
+        document.getElementById('diskspace-red-threshold').style.left = config.thresholds.freeSpace.red + '%';
 
         // Helper functions
         function generateRandomValue(min, max) {
@@ -376,6 +370,44 @@
 
         function formatTime(date) {
             return date.toTimeString().split(' ')[0];
+        }
+
+        function updateGauge(prefix, value, reverseLogic = false) {
+            const gaugeElement = document.getElementById(`${prefix}-gauge`);
+            const gaugeValueElement = document.getElementById(`${prefix}-gauge-value`);
+            const thresholds = reverseLogic ?
+                config.thresholds.freeSpace :
+                config.thresholds[prefix === 'cpu' ? 'cpuLoad' : prefix === 'memory' ? 'memoryUsage' : 'diskIO'];
+
+            // Set gauge width based on value
+            gaugeElement.style.width = `${value}%`;
+
+            // Set gauge value text
+            gaugeValueElement.textContent = prefix === 'diskio' ? `${value} MB/s` : `${value}%`;
+
+            // Determine color based on thresholds
+            let statusClass;
+            if (reverseLogic) {
+                if (value <= thresholds.red) {
+                    statusClass = 'red';
+                } else if (value <= thresholds.yellow) {
+                    statusClass = 'yellow';
+                } else {
+                    statusClass = 'green';
+                }
+            } else {
+                if (value >= thresholds.red) {
+                    statusClass = 'red';
+                } else if (value >= thresholds.yellow) {
+                    statusClass = 'yellow';
+                } else {
+                    statusClass = 'green';
+                }
+            }
+
+            // Remove existing classes and add the correct one
+            gaugeElement.classList.remove('green', 'yellow', 'red');
+            gaugeElement.classList.add(statusClass);
         }
 
         function updateStatusIndicator(elementPrefix, value, thresholds, reverseLogic = false) {
@@ -437,6 +469,12 @@
             document.getElementById('diskio-value').textContent = `${diskIOValue} MB/s`;
             document.getElementById('diskspace-value').textContent = `${freeSpaceValue}%`;
 
+            // Update gauges
+            updateGauge('cpu', cpuValue);
+            updateGauge('memory', memoryValue);
+            updateGauge('diskio', diskIOValue);
+            updateGauge('diskspace', freeSpaceValue, true);
+
             // Update timestamps
             const elements = ['cpu-time', 'memory-time', 'diskio-time', 'diskspace-time'];
             elements.forEach(id => {
@@ -448,26 +486,6 @@
             updateStatusIndicator('memory', memoryValue, config.thresholds.memoryUsage);
             updateStatusIndicator('diskio', diskIOValue, config.thresholds.diskIO);
             updateStatusIndicator('diskspace', freeSpaceValue, config.thresholds.freeSpace, true);
-
-            // Update chart data
-            timeLabels.push(timeString);
-            cpuData.push(cpuValue);
-            memoryData.push(memoryValue);
-            diskIOData.push(diskIOValue);
-            freeSpaceData.push(freeSpaceValue);
-
-            // Limit the number of data points
-            if (timeLabels.length > config.maxDataPoints) {
-                timeLabels.shift();
-                cpuData.shift();
-                memoryData.shift();
-                diskIOData.shift();
-                freeSpaceData.shift();
-            }
-
-            // Update the charts
-            cpuMemoryChart.update();
-            diskChart.update();
         }
 
         // Initial update
