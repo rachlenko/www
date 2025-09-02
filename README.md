@@ -6,18 +6,7 @@
 ## About Me
 I am a happy developer who believes the power of programming is to make code work! :)
 
-## Skills
-
-- **Languages**: Python, Go, Java
-- **Interests**: IoT, Smart Home Automation, System Architecture, BigData
-- **Development**: Backend 
-
-## Projects
-
-- [git-camus](https://github.com/rachlenko/git-camus)
-- [calendula](https://github.com/rachlenko/calendula)
-- [prometheus](https://github.com/rachlenko/prometheus)
-
+![Metrics](/github-metrics.svg) 
 
 ## ☕ Support me: 
 [if you like my code: Buy me a coffee ](https://ko-fi.com/evgenyrachlenko)
