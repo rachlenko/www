@@ -9,7 +9,7 @@ I am a happy developer who believes the power of programming is to make code wor
 ![Metrics](/github-metrics.svg) 
 
 ## ☕ Support me: 
-[if you like my code: Buy me a coffee ](https://ko-fi.com/evgenyrachlenko)
+[if you like my code: Buy me a coffee](https://ko-fi.com/evgenyrachlenko)
 
 <!-- GitHub stats commented out for now
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=rachlenko&show_icons=true&theme=radical" />
