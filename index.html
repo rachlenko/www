@@ -6,30 +6,136 @@
   <title>rachlenko.com</title>
   <style>
     :root {
-      --bg-color: #000000;
-      --header-bg: #111111;
-      --card-bg: #111111;
-      --text-color: #ffffff;
-      --link-color: #cccccc;
-      --border-color: #333333;
-      --accent-1: #222222;
-      --accent-2: #1a1a1a;
+      /* Base colors - clean, medical, trustworthy */
+      --background: 0 0% 100%;
+      --foreground: 210 15% 20%;
+
+      /* Card and surface colors */
+      --card: 0 0% 100%;
+      --card-foreground: 210 15% 20%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 210 15% 20%;
+
+      /* Brand colors - inspired by brain/medical theme */
+      --primary: 200 95% 35%;
+      --primary-foreground: 0 0% 100%;
+      --primary-light: 200 80% 50%;
+      --primary-dark: 200 100% 25%;
+
+      /* Secondary brand color - warm, approachable */
+      --secondary: 210 40% 98%;
+      --secondary-foreground: 210 15% 20%;
+
+      /* Accent - brain-inspired coral/pink */
+      --accent: 345 80% 65%;
+      --accent-foreground: 0 0% 100%;
+
+      /* Muted colors for subtle elements - High contrast for accessibility */
+      --muted: 210 40% 98%;
+      --muted-foreground: 210 15% 30%;
+
+      /* Destructive for errors */
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 100%;
+
+      /* Borders and inputs */
+      --border: 210 25% 90%;
+      --input: 210 25% 90%;
+      --ring: 200 95% 35%;
+
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+      --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+      --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+      /* Orange CTA gradients to match logo play button */
+      --gradient-orange: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(15 85% 50%) 100%);
+      --gradient-orange-hover: linear-gradient(135deg, hsl(25 95% 60%) 0%, hsl(15 85% 55%) 100%);
+
+      /* Shadows */
+      --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+      --shadow-strong: 0 10px 40px -10px hsl(var(--primary) / 0.25);
+
+      /* Spacing and sizing */
+      --radius: 0.5rem;
+
+      --sidebar-background: 0 0% 98%;
+      --sidebar-foreground: 240 5.3% 26.1%;
+      --sidebar-primary: 240 5.9% 10%;
+      --sidebar-primary-foreground: 0 0% 98%;
+      --sidebar-accent: 240 4.8% 95.9%;
+      --sidebar-accent-foreground: 240 5.9% 10%;
+      --sidebar-border: 220 13% 91%;
+      --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+      --background: 210 15% 8%;
+      --foreground: 210 40% 98%;
+
+      --card: 210 15% 10%;
+      --card-foreground: 210 40% 98%;
+
+      --popover: 210 15% 10%;
+      --popover-foreground: 210 40% 98%;
+
+      --primary: 200 95% 50%;
+      --primary-foreground: 210 15% 8%;
+      --primary-light: 200 80% 65%;
+      --primary-dark: 200 100% 35%;
+
+      --secondary: 210 15% 15%;
+      --secondary-foreground: 210 40% 98%;
+
+      --accent: 345 80% 65%;
+      --accent-foreground: 0 0% 100%;
+
+      --muted: 210 15% 15%;
+      --muted-foreground: 210 15% 85%;
+
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 100%;
+
+      --border: 210 15% 20%;
+      --input: 210 15% 20%;
+      --ring: 200 95% 50%;
+
+      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+      --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+      --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+      /* Orange CTA gradients to match logo play button */
+      --gradient-orange: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(15 85% 50%) 100%);
+      --gradient-orange-hover: linear-gradient(135deg, hsl(25 95% 60%) 0%, hsl(15 85% 55%) 100%);
+
+      --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.2);
+      --shadow-strong: 0 10px 40px -10px hsl(var(--primary) / 0.4);
+
+      --sidebar-background: 210 15% 10%;
+      --sidebar-foreground: 210 40% 98%;
+      --sidebar-primary: 200 95% 50%;
+      --sidebar-primary-foreground: 210 15% 8%;
+      --sidebar-accent: 210 15% 15%;
+      --sidebar-accent-foreground: 210 40% 98%;
+      --sidebar-border: 210 15% 20%;
+      --sidebar-ring: 200 95% 50%;
     }
     
     body {
       font-family: "Times New Roman", Times, serif;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
       line-height: 1.6;
     }
     
     header {
-      background-color: var(--header-bg);
+      background-color: hsl(var(--card));
       padding: 24px 0;
       text-align: center;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid hsl(var(--border));
       margin-bottom: 20px;
     }
     
@@ -40,12 +146,12 @@
     }
     
     .profile-card {
-      background-color: var(--card-bg);
+      background-color: hsl(var(--card));
       border-radius: 6px;
-      border: 1px solid var(--border-color);
+      border: 1px solid hsl(var(--border));
       padding: 24px;
       margin-bottom: 24px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-soft);
     }
     
     .profile-header {
@@ -59,7 +165,7 @@
       height: 128px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid var(--border-color);
+      border: 1px solid hsl(var(--border));
     }
     
     .profile-info {
@@ -78,19 +184,19 @@
       font-weight: bold;
       margin: 24px 0 16px 0;
       padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid hsl(var(--border));
       letter-spacing: -0.5px;
     }
     
     .location {
-      color: #cccccc;
+      color: hsl(var(--muted-foreground));
       font-size: 16px;
       margin-bottom: 4px;
       font-style: italic;
     }
     
     .profession {
-      color: #ffffff;
+      color: hsl(var(--foreground));
       font-size: 18px;
       margin-bottom: 8px;
       font-weight: bold;
@@ -107,17 +213,17 @@
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      color: var(--link-color);
-      background-color: var(--accent-1);
+      color: hsl(var(--muted-foreground));
+      background-color: hsl(var(--muted));
       padding: 8px 12px;
       border-radius: 6px;
       font-size: 16px;
       transition: background-color 0.2s;
     }
-    
+
     .social-links a:hover {
-      background-color: #333333;
-      color: #ffffff;
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
     }
 
     .social-icon {
@@ -129,16 +235,16 @@
     footer {
       text-align: center;
       padding: 24px;
-      color: #777777;
+      color: hsl(var(--muted-foreground));
       font-size: 14px;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid hsl(var(--border));
       margin-top: 40px;
       font-style: italic;
     }
 
     .projects-section {
       padding: 80px 0;
-      background-color: var(--bg-color);
+      background-color: hsl(var(--background));
     }
 
     .projects-grid {
@@ -149,17 +255,17 @@
     }
 
     .project-card {
-      background: var(--card-bg);
+      background: hsl(var(--card));
       padding: 30px;
       border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-soft);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--shadow-strong);
     }
 
     .project-icon {
@@ -177,13 +283,13 @@
     }
 
     .project-card h3 {
-      color: var(--text-color);
+      color: hsl(var(--foreground));
       margin-bottom: 15px;
       font-size: 1.5rem;
     }
 
     .project-card p {
-      color: var(--link-color);
+      color: hsl(var(--muted-foreground));
       margin-bottom: 20px;
       line-height: 1.6;
     }
@@ -191,16 +297,16 @@
     .project-link {
       display: inline-block;
       padding: 8px 20px;
-      background-color: var(--accent-1);
-      color: var(--text-color);
+      background: var(--gradient-orange);
+      color: hsl(var(--primary-foreground));
       text-decoration: none;
       border-radius: 4px;
       font-weight: 500;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     .project-link:hover {
-      background-color: #333333;
+      background: var(--gradient-orange-hover);
     }
 
     @media (max-width: 768px) {
