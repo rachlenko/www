@@ -4,7 +4,7 @@
 [![ko-fi](https://img.shields.io/badge/Support%20Me-Ko--fi-orange)](https://ko-fi.com/evgenyrachlenko)
 
 ## About Me
-I am a happy developer who believes the power of programming is to make code work! :)
+I am developer who agree with the philosophy of [DHH](https://en.wikipedia.org/wiki/David_Heinemeier_Hansson), which advocates writing simple complex things and also believes the power of programming is to make code work!
 
 ![Metrics](/github-metrics.svg) 
 
