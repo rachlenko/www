@@ -3,313 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rachlenko.com</title>
+  <title>Evgeny Rachlenko</title>
   <style>
-    :root {
-      /* Base colors - clean, medical, trustworthy */
-      --background: 0 0% 100%;
-      --foreground: 210 15% 20%;
-
-      /* Card and surface colors */
-      --card: 0 0% 100%;
-      --card-foreground: 210 15% 20%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 210 15% 20%;
-
-      /* Brand colors - inspired by brain/medical theme */
-      --primary: 200 95% 35%;
-      --primary-foreground: 0 0% 100%;
-      --primary-light: 200 80% 50%;
-      --primary-dark: 200 100% 25%;
-
-      /* Secondary brand color - warm, approachable */
-      --secondary: 210 40% 98%;
-      --secondary-foreground: 210 15% 20%;
-
-      /* Accent - brain-inspired coral/pink */
-      --accent: 345 80% 65%;
-      --accent-foreground: 0 0% 100%;
-
-      /* Muted colors for subtle elements - High contrast for accessibility */
-      --muted: 210 40% 98%;
-      --muted-foreground: 210 15% 30%;
-
-      /* Destructive for errors */
-      --destructive: 0 84% 60%;
-      --destructive-foreground: 0 0% 100%;
-
-      /* Borders and inputs */
-      --border: 210 25% 90%;
-      --input: 210 25% 90%;
-      --ring: 200 95% 35%;
-
-      /* Gradients */
-      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-      --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-      --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-
-      /* Orange CTA gradients to match logo play button */
-      --gradient-orange: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(15 85% 50%) 100%);
-      --gradient-orange-hover: linear-gradient(135deg, hsl(25 95% 60%) 0%, hsl(15 85% 55%) 100%);
-
-      /* Shadows */
-      --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-      --shadow-strong: 0 10px 40px -10px hsl(var(--primary) / 0.25);
-
-      /* Spacing and sizing */
-      --radius: 0.5rem;
-
-      --sidebar-background: 0 0% 98%;
-      --sidebar-foreground: 240 5.3% 26.1%;
-      --sidebar-primary: 240 5.9% 10%;
-      --sidebar-primary-foreground: 0 0% 98%;
-      --sidebar-accent: 240 4.8% 95.9%;
-      --sidebar-accent-foreground: 240 5.9% 10%;
-      --sidebar-border: 220 13% 91%;
-      --sidebar-ring: 217.2 91.2% 59.8%;
-    }
-
-    .dark {
-      --background: 210 15% 8%;
-      --foreground: 210 40% 98%;
-
-      --card: 210 15% 10%;
-      --card-foreground: 210 40% 98%;
-
-      --popover: 210 15% 10%;
-      --popover-foreground: 210 40% 98%;
-
-      --primary: 200 95% 50%;
-      --primary-foreground: 210 15% 8%;
-      --primary-light: 200 80% 65%;
-      --primary-dark: 200 100% 35%;
-
-      --secondary: 210 15% 15%;
-      --secondary-foreground: 210 40% 98%;
-
-      --accent: 345 80% 65%;
-      --accent-foreground: 0 0% 100%;
-
-      --muted: 210 15% 15%;
-      --muted-foreground: 210 15% 85%;
-
-      --destructive: 0 84% 60%;
-      --destructive-foreground: 0 0% 100%;
-
-      --border: 210 15% 20%;
-      --input: 210 15% 20%;
-      --ring: 200 95% 50%;
-
-      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-      --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-      --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-
-      /* Orange CTA gradients to match logo play button */
-      --gradient-orange: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(15 85% 50%) 100%);
-      --gradient-orange-hover: linear-gradient(135deg, hsl(25 95% 60%) 0%, hsl(15 85% 55%) 100%);
-
-      --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.2);
-      --shadow-strong: 0 10px 40px -10px hsl(var(--primary) / 0.4);
-
-      --sidebar-background: 210 15% 10%;
-      --sidebar-foreground: 210 40% 98%;
-      --sidebar-primary: 200 95% 50%;
-      --sidebar-primary-foreground: 210 15% 8%;
-      --sidebar-accent: 210 15% 15%;
-      --sidebar-accent-foreground: 210 40% 98%;
-      --sidebar-border: 210 15% 20%;
-      --sidebar-ring: 200 95% 50%;
-    }
-    
-    body {
-      font-family: "Times New Roman", Times, serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: hsl(var(--background));
-      color: hsl(var(--foreground));
-      line-height: 1.6;
-    }
-    
-    header {
-      background-color: hsl(var(--card));
-      padding: 24px 0;
-      text-align: center;
-      border-bottom: 1px solid hsl(var(--border));
-      margin-bottom: 20px;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-    
-    .profile-card {
-      background-color: hsl(var(--card));
-      border-radius: 6px;
-      border: 1px solid hsl(var(--border));
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-soft);
-    }
-    
-    .profile-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .profile-image {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid hsl(var(--border));
-    }
-    
-    .profile-info {
-      margin-left: 20px;
-    }
-    
-    h1 {
-      font-size: 28px;
-      margin: 0 0 8px 0;
-      font-weight: bold;
-      letter-spacing: -0.5px;
-    }
-    
-    h2 {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 24px 0 16px 0;
-      padding-bottom: 8px;
-      border-bottom: 1px solid hsl(var(--border));
-      letter-spacing: -0.5px;
-    }
-    
-    .location {
-      color: hsl(var(--muted-foreground));
-      font-size: 16px;
-      margin-bottom: 4px;
-      font-style: italic;
-    }
-    
-    .profession {
-      color: hsl(var(--foreground));
-      font-size: 18px;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      color: hsl(var(--muted-foreground));
-      background-color: hsl(var(--muted));
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 16px;
-      transition: background-color 0.2s;
+      box-sizing: border-box;
     }
 
-    .social-links a:hover {
-      background-color: hsl(var(--primary));
-      color: hsl(var(--primary-foreground));
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Dark Navigation Header */
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 20px 0;
+      border-bottom: 3px solid #34495e;
+    }
+
+    .header-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .site-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .site-title:hover {
+      color: #3498db;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #3498db;
     }
 
     .social-icon {
-      margin-right: 8px;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: hsl(var(--muted-foreground));
-      font-size: 14px;
-      border-top: 1px solid hsl(var(--border));
-      margin-top: 40px;
+    /* Main Content */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* About Section */
+    .about-section {
+      margin-bottom: 60px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    .profile-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    .profile-info h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      letter-spacing: -1px;
+    }
+
+    .profession {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .location {
+      font-size: 16px;
+      color: #777;
       font-style: italic;
     }
 
-    .projects-section {
-      padding: 80px 0;
-      background-color: hsl(var(--background));
+    .bio {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+      max-width: 800px;
     }
 
+    /* Section Headings */
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0e0e0;
+      letter-spacing: -0.5px;
+    }
+
+    /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
-      margin-top: 40px;
+      margin-bottom: 60px;
     }
 
     .project-card {
-      background: hsl(var(--card));
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: var(--shadow-soft);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-strong);
-    }
-
-    .project-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 20px;
-      border-radius: 8px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
       overflow: hidden;
     }
 
-    .project-icon img {
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .project-image {
       width: 100%;
-      height: 100%;
+      height: 180px;
       object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .project-content {
+      padding: 24px;
     }
 
     .project-card h3 {
-      color: hsl(var(--foreground));
-      margin-bottom: 15px;
-      font-size: 1.5rem;
+      font-size: 22px;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      font-weight: bold;
     }
 
     .project-card p {
-      color: hsl(var(--muted-foreground));
-      margin-bottom: 20px;
+      font-size: 16px;
+      color: #666;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .project-link {
       display: inline-block;
-      padding: 8px 20px;
-      background: var(--gradient-orange);
-      color: hsl(var(--primary-foreground));
+      color: #3498db;
       text-decoration: none;
-      border-radius: 4px;
       font-weight: 500;
-      transition: background 0.3s ease;
+      font-size: 16px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
     }
 
     .project-link:hover {
-      background: var(--gradient-orange-hover);
+      border-bottom-color: #3498db;
     }
 
+    /* Footer */
+    footer {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 30px 20px;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 80px;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-image {
+        width: 140px;
+        height: 140px;
+      }
+
+      .profile-info h1 {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -318,66 +249,70 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>www.rachlenko.com</h1>
+    <div class="header-container">
+      <a href="/" class="site-title">Evgeny Rachlenko</a>
+      <nav class="nav-links">
+        <a href="https://linkedin.com/in/evgeny_rachlenko" target="_blank" title="LinkedIn">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/rachlenko" target="_blank" title="GitHub">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"></path>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://x.com/ERachlenko22126" target="_blank" title="Twitter">
+          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+          Twitter
+        </a>
+      </nav>
     </div>
   </header>
-  
+
   <div class="container">
-    <div class="profile-card">
+    <section class="about-section">
       <div class="profile-header">
         <img src="images/evgeny.png" alt="Evgeny Rachlenko" class="profile-image">
         <div class="profile-info">
           <h1>Evgeny Rachlenko</h1>
           <div class="profession">Software Engineer</div>
-          <div class="location">
-            Madeira<br>
-            Portugal, 9215-065
+          <div class="location">Madeira, Portugal</div>
+        </div>
+      </div>
+      <div class="bio">
+        <p>
+          I'm a software engineer passionate about building meaningful applications that make a difference.
+          With experience spanning various domains of software development, I focus on creating solutions
+          that enhance people's lives through technology. Currently based in Madeira, Portugal, I work on
+          projects that combine technical excellence with practical impact.
+        </p>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="images/brincara.png" alt="Brincara" class="project-image">
+          <div class="project-content">
+            <h3>Brincara</h3>
+            <p>
+              Enhancing cognitive wellness through science-backed training programs designed to improve mental agility and brain health.
+            </p>
+            <a href="http://brincara.com" class="project-link">Learn More →</a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 
-  <section class="projects-section">
-      <div class="container">
-          <div class="section-heading">
-              <h2>My pet projects</h2>
-          </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                  <div class="project-icon">
-                    <img src="images/brincara.png" alt="Brincara">
-                  </div>
-                    <h3>Brincara</h3>
-                    <p>
-                      Enhancing cognitive wellness through science-backed training
-                    </p>
-                    <a href="http://brincara.com" class="project-link">Learn More</a>
-                  </div>
-          </div>
-      </div>
-  </section>
-
   <footer>
-      © 2025 Evgeny Rachlenko
+    <p>&copy; 2025 Evgeny Rachlenko. All rights reserved.</p>
   </footer>
-
-   <div class="social-links">
-      <a href="https://linkedin.com/in/evgeny_rachlenko" target="_blank">
-        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/rachlenko" target="_blank">
-        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"></path>
-        </svg>
-        GitHub
-      </a>
-    </div>
-
 </body>
 </html>
