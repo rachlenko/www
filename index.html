@@ -386,8 +386,12 @@
 
     <section class="blog-section">
       <h2>Blog</h2>
-      <div class="blog-list" id="blog-list">
-        <p>Loading blog posts...</p>
+      <div class="blog-list">
+        <div class="blog-post">
+          <div class="blog-date">Published on Medium</div>
+          <h3><a href="https://medium.com/@evgeny.rachlenko/kafka-troubleshooting-in-production-2cf6ba0d58c0" target="_blank">Kafka Troubleshooting in Production</a></h3>
+          <a href="https://medium.com/@evgeny.rachlenko/kafka-troubleshooting-in-production-2cf6ba0d58c0" target="_blank" class="read-more">Read More →</a>
+        </div>
       </div>
     </section>
   </div>
@@ -395,48 +399,5 @@
   <footer>
     <p>&copy; 2025 Evgeny Rachlenko. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Load and display blog posts dynamically
-    async function loadBlogPosts() {
-      try {
-        const response = await fetch('blog/posts.json');
-        const posts = await response.json();
-
-        const blogList = document.getElementById('blog-list');
-
-        if (posts.length === 0) {
-          blogList.innerHTML = '<p>No blog posts yet. Check back soon!</p>';
-          return;
-        }
-
-        // Sort posts by date (newest first)
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        // Generate HTML for each post
-        blogList.innerHTML = posts.map(post => {
-          const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          });
-
-          return `
-            <div class="blog-post">
-              <div class="blog-date">${formattedDate}</div>
-              <h3><a href="blog/${post.filename}">${post.title}</a></h3>
-              <a href="blog/${post.filename}" class="read-more">Read More →</a>
-            </div>
-          `;
-        }).join('');
-      } catch (error) {
-        console.error('Error loading blog posts:', error);
-        document.getElementById('blog-list').innerHTML = '<p>Error loading blog posts.</p>';
-      }
-    }
-
-    // Load blog posts when page loads
-    document.addEventListener('DOMContentLoaded', loadBlogPosts);
-  </script>
 </body>
 </html>
